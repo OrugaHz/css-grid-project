@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+    font-family: arial;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: minmax(120px, 200px) minmax(240px, 1fr) 80px;
+    grid-template-rows: auto 1fr auto auto;
+    grid-template-areas:
+        'logotype search hamburger'
+        'images images images'
+        'contact contact contact'
+        'footer footer footer';
+
+    @media (min-width: 1024px) {
+        grid-template-columns: minmax(300px, auto) 1fr;
+        grid-template-rows: auto auto auto 1fr auto auto;
+        grid-template-areas:
+            'logotype images'
+            'menu images'
+            'search images'
+            '. images'
+            'contact images'
+            'footer footer';
+    }
+
+    //kontener
+    min-height: 100vh;
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.logo {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: #8d556c;
+    height: 100px;
+
+    @media (min-width: 1024px) {
+        grid-area: logotype;
+    }
+}
+
+.search {
+    grid-area: search;
+
+    // grid-column: 2/3;
+    // grid-row: 1/2;
+    background-color: #AC7088;
+
+    @media (min-width: 1024px) {
+        min-height: 80px;
+        ;
+    }
+}
+
+.menu {
+    grid-column: -1/-2;
+    grid-row: 1;
+    background-color: #92697a;
+
+    @media (min-width: 1024px) {
+        grid-area: menu;
+        min-height: 300px;
+    }
+}
+
+.gallery {
+    grid-column: 1/-1;
+    grid-row: 2;
+    background-color: #F5E8C7;
+
+    //kontener
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
+    gap: 15px;
+    padding: 120px 15px 15px 15px;
+    position: relative;
+
+    @media (min-width: 1024px) {
+        grid-area: images;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    h1 {
+        position: absolute;
+        top: 30px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        background-color: #ac7088bc;
+        color: white;
+        text-transform: uppercase;
+    }
+}
+
+.contact {
+    grid-area: 3/1/4/-1;
+    height: 110px;
+    background-color: #ECCCB2;
+
+    @media (min-width: 1024px) {
+        grid-area: contact;
+    }
+}
+
+.footer {
+    grid-area: footer;
+    height: 30px;
+    background-color: #DEB6AB;
+}
